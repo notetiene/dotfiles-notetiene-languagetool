@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=LT stop service
+GenericName=LanguageTool stop service
+X-GNOME-FullName=LanguageTool stop service
+Exec=/bin/sh -c "/usr/bin/systemctl is-active --user --quiet docker-languagetool.service && /usr/bin/systemctl --user stop docker-languagetool.service && zenity --notification --window-icon=lt_symbol_boxed_white --text 'LanguageTool service stopped'"
+Icon=lt_symbol_boxed_white
+Terminal=false
+Categories=Network;GTK;
