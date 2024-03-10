@@ -1,0 +1,16 @@
+[Unit]
+Description=Containers for languagetool (with proxy CORS fix)
+After=network.service
+
+[Service]
+Restart=always
+WorkingDirectory=/home/etienne/dev/deployment/docker-languagetool/cors-workaround/
+# Shutdown container (if running) when unit is started
+ExecStartPre=/usr/bin/docker compose -f docker-compose.yml down
+# Start container when unit is started
+ExecStart=/usr/bin/docker compose -f docker-compose.yml up
+# Stop container when unit is stopped
+ExecStop=/usr/bin/docker compose -f docker-compose.yml down
+
+[Install]
+WantedBy=default.target
